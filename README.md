@@ -468,6 +468,21 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 * **VMware ESXi** hypervisor successfully entered into the `AMAZONLEO.LOCAL` domain.
 * ESXi administration rights delegated to the `AMAZONLEO\routeradmin` domain group (Authentication Services -> Active Directory Enabled).
 
+![117](images/11.png)
+
+---
+
+![118](images/118.png)
+
+---
+
+![119](images/119.png)
+
+---
+
+![120](images/120.png)
+
+---
 ### 5. Licensing Infrastructure (KMS Host)
 * A local **KMS** activation node has been deployed on a dedicated server in the subnet.
 * An SRV record `_vlmcs._tcp` on port `1688` has been created in DNS for automatic search of the activation server by clients.
