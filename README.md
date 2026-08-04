@@ -287,6 +287,18 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 ![60](images/60.png)
 
 ---
+
+![61](images/61.png)
+
+---
+
+![62](images/62.png)
+
+---
+
+![63](images/63.png)
+
+---
 ### 3. VPN & Remote Access
 * **WireGuard VPN:** Configured tunneling on R1 with automatic key generation and configuration files for clients (`vm51.conf` config generated).
 * **L2TP/IPSec VPN:** Configured L2TP server on R1/R2 with mandatory IPSec encryption (Required). Authentication integrated with domain RADIUS.
