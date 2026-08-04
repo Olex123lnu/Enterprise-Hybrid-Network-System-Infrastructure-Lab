@@ -226,6 +226,22 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 ![88](images/88.png)
 
 ---
+
+![122](images/122.png)
+
+---
+
+![128](images/128.png)
+
+---
+
+![129](images/129.png)
+
+---
+
+![130](images/130.png)
+
+---
 ### 2. Centralized Access Control (NPS / RADIUS)
 * The **NPS (Network Policy Server)** role has been deployed on Windows Server.
 * MikroTik routers have been added as RADIUS clients.
@@ -483,6 +499,31 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 ![120](images/120.png)
 
 ---
+
+![121](images/121.png)
+
+---
+
+![123](images/123.png)
+
+---
+
+![124](images/124.png)
+
+---
+
+![125](images/125.png)
+
+---
+
+![126](images/126.png)
+
+---
+
+![127](images/127.png)
+
+---
+
 ### 5. Licensing Infrastructure (KMS Host)
 * A local **KMS** activation node has been deployed on a dedicated server in the subnet.
 * An SRV record `_vlmcs._tcp` on port `1688` has been created in DNS for automatic search of the activation server by clients.
