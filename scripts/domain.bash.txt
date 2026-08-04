@@ -1,0 +1,83 @@
+﻿#!/bin/bash
+# Автор: Olexandr Kuriachyi
+# Мета: Автоматичне приєднання Linux до домену Windows AD
+
+# ------------------------ [1. ПЕРЕВІРКА ТА ПАРАМЕТРИ] ------------------------
+
+if [ "$EUID" -ne 0 ]; then
+    echo "❌ Помилка: запусти цей скрипт як root або через sudo."
+    exit 1
+fi
+
+read -p "Введи домен (наприклад, yourdomain.com): " DOMAIN
+read -p "Введи ім'я користувача AD (адміністратора домену): " USER
+read -sp "Введи пароль користувача $USER: " PASSWORD
+echo ""
+DOMAIN_UPPER=$(echo $DOMAIN | tr '[:lower:]' '[:upper:]')
+
+# Перевірка підключення DNS
+echo "🔍 Перевірка DNS..."
+if ! host "$DOMAIN" &>/dev/null; then
+    echo "⚠️  Не вдалося знайти DNS-запис для $DOMAIN — перевір DNS-сервер!"
+fi
+
+# ------------------------ [2. ІНСТАЛЯЦІЯ ПАКЕТІВ] ---------------------------
+
+echo "📦 Встановлення пакетів..."
+export DEBIAN_FRONTEND=noninteractive
+apt-get update -qq
+apt-get install -y realmd sssd sssd-tools adcli samba-common-bin packagekit >/dev/null 2>&1
+
+if [ $? -ne 0 ]; then
+    echo "❌ Помилка встановлення пакетів."
+    exit 1
+fi
+
+# ------------------------ [3. ПРИЄДНАННЯ ДО ДОМЕНУ] --------------------------
+
+echo "🔗 Перевірка, чи система вже в домені..."
+if realm list | grep -q "$DOMAIN_UPPER"; then
+    echo "ℹ️ Система вже приєднана до домену $DOMAIN."
+else
+    echo "🚀 Приєднання до домену $DOMAIN..."
+    echo "$PASSWORD" | realm join --user="$USER" "$DOMAIN"
+    if [ $? -ne 0 ]; then
+        echo "❌ Помилка приєднання до домену!"
+        exit 1
+    fi
+fi
+
+# ------------------------ [4. НАЛАШТУВАННЯ SSSD ТА PAM] ----------------------
+
+SSSD_CONF="/etc/sssd/sssd.conf"
+PAM_SESSION_FILE="/etc/pam.d/common-session"
+
+echo "🧩 Створення резервних копій конфігурацій..."
+cp "$SSSD_CONF" "$SSSD_CONF.bak_$(date +%F_%T)" 2>/dev/null
+cp "$PAM_SESSION_FILE" "$PAM_SESSION_FILE.bak_$(date +%F_%T)" 2>/dev/null
+
+echo "⚙️ Налаштування SSSD..."
+if ! grep -q "simple_allow_users" "$SSSD_CONF"; then
+    sed -i "/\[domain\/$DOMAIN_UPPER\]/a simple_allow_users = +*" "$SSSD_CONF"
+    echo "✅ Додано simple_allow_users = +*"
+else
+    echo "ℹ️ simple_allow_users вже існує."
+fi
+
+echo "⚙️ Налаштування PAM для створення домашніх директорій..."
+if ! grep -q "pam_mkhomedir.so" "$PAM_SESSION_FILE"; then
+    echo "session required pam_mkhomedir.so skel=/etc/skel/ umask=0022" >> "$PAM_SESSION_FILE"
+    echo "✅ Додано pam_mkhomedir.so"
+else
+    echo "ℹ️ pam_mkhomedir.so вже є."
+fi
+
+# ------------------------ [5. ПЕРЕЗАПУСК СЕРВІСІВ] ---------------------------
+
+echo "🔁 Перезапуск SSSD..."
+systemctl restart sssd && systemctl enable sssd
+
+echo "--------------------------------------------------"
+echo "🎉 УСПІХ! Система приєднана до домену $DOMAIN"
+echo "🔐 Тепер користувачі можуть входити як user@$DOMAIN"
+echo "--------------------------------------------------"
