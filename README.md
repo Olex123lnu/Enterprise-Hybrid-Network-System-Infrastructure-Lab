@@ -399,6 +399,46 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 ![100](images/100.png)
 
 ---
+
+![101](images/101.png)
+
+---
+
+![102](images/102.png)
+
+---
+
+![103](images/103.png)
+
+---
+
+![104](images/104.png)
+
+---
+
+![105](images/105.png)
+
+---
+
+![106](images/106.png)
+
+---
+
+![107](images/107.png)
+
+---
+
+![108](images/108.png)
+
+---
+
+![109](images/109.png)
+
+---
+
+![110](images/110.png)
+
+---
 ### 4. Domain Services and Hypervisor Integration
 * DNS server configured with forward and reverse zones (PTR records created for KMS and DC1).
 * **VMware ESXi** hypervisor successfully entered into the `AMAZONLEO.LOCAL` domain.
