@@ -40,6 +40,7 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 * To improve security and optimize OSPF traffic, the interfaces facing the clients are set to passive mode (`Passive: yes`), and MD5 authentication is enabled for OSPF sessions.
 
 ![Interface R1](images/1.png)
+
 *Interface R1*
 ### 2. Centralized Access Control (NPS / RADIUS)
 * The **NPS (Network Policy Server)** role has been deployed on Windows Server.
