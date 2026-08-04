@@ -5,3 +5,4 @@ This project is dedicated to building a comprehensive, isolated corporate networ
 The goal of the laboratory work is to implement and validate a fault-tolerant routing architecture (OSPF), secure segmentation (VLAN), centralized access control (AAA/RADIUS), and remote connection technologies (WireGuard, L2TP/IPSec VPN).
 
 ---
+## 🗺️ Network topology
