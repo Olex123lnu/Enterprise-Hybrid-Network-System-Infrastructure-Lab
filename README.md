@@ -50,3 +50,12 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 * **L2TP/IPSec VPN:** Configured L2TP server on R1/R2 with mandatory IPSec encryption (Required). Authentication integrated with domain RADIUS.
 * **CMAK (Connection Manager Administration Kit):** Created a connection installation profile for Windows clients that automatically configures security settings, DNS suffix (`AmazonLeo.local`) and runs a routing script (`st_99.bat`) upon successful connection.
 
+### 4. Domain Services and Hypervisor Integration
+* DNS server configured with forward and reverse zones (PTR records created for KMS and DC1).
+* **VMware ESXi** hypervisor successfully entered into the `AMAZONLEO.LOCAL` domain.
+* ESXi administration rights delegated to the `AMAZONLEO\routeradmin` domain group (Authentication Services -> Active Directory Enabled).
+
+### 5. Licensing Infrastructure (KMS Host)
+* A local **KMS** activation node has been deployed on a dedicated server in the subnet.
+* An SRV record `_vlmcs._tcp` on port `1688` has been created in DNS for automatic search of the activation server by clients.
+* A successful activation of the Windows 10 client VM using the local KMS host (validated via `slmgr /dlv`) has been performed.
