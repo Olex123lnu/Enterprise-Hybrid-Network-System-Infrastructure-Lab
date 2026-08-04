@@ -304,6 +304,21 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 * **L2TP/IPSec VPN:** Configured L2TP server on R1/R2 with mandatory IPSec encryption (Required). Authentication integrated with domain RADIUS.
 * **CMAK (Connection Manager Administration Kit):** Created a connection installation profile for Windows clients that automatically configures security settings, DNS suffix (`AmazonLeo.local`) and runs a routing script (`st_99.bat`) upon successful connection.
 
+![77](images/77.png)
+
+---
+
+![78](images/78.png)
+
+---
+
+![79](images/79.png)
+
+---
+
+![80](images/80.png)
+
+---
 ### 4. Domain Services and Hypervisor Integration
 * DNS server configured with forward and reverse zones (PTR records created for KMS and DC1).
 * **VMware ESXi** hypervisor successfully entered into the `AMAZONLEO.LOCAL` domain.
