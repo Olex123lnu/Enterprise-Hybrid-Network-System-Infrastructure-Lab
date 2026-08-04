@@ -82,6 +82,46 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 ![10](images/10.png)
 
 ---
+
+![11](images/11.png)
+
+---
+
+![12](images/12.png)
+
+---
+
+![13](images/13.png)
+
+---
+
+![14](images/14.png)
+
+---
+
+![15](images/15.png)
+
+---
+
+![16](images/16.png)
+
+---
+
+![17](images/17.png)
+
+---
+
+![18](images/18.png)
+
+---
+
+![19](images/19.png)
+
+---
+
+![20](images/20.png)
+
+---
 ### 2. Centralized Access Control (NPS / RADIUS)
 * The **NPS (Network Policy Server)** role has been deployed on Windows Server.
 * MikroTik routers have been added as RADIUS clients.
