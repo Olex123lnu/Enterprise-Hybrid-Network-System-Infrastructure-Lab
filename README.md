@@ -468,7 +468,7 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 * **VMware ESXi** hypervisor successfully entered into the `AMAZONLEO.LOCAL` domain.
 * ESXi administration rights delegated to the `AMAZONLEO\routeradmin` domain group (Authentication Services -> Active Directory Enabled).
 
-![117](images/11.png)
+![117](images/117.png)
 
 ---
 
