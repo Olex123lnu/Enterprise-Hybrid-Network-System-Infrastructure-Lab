@@ -313,3 +313,31 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 * A local **KMS** activation node has been deployed on a dedicated server in the subnet.
 * An SRV record `_vlmcs._tcp` on port `1688` has been created in DNS for automatic search of the activation server by clients.
 * A successful activation of the Windows 10 client VM using the local KMS host (validated via `slmgr /dlv`) has been performed.
+
+![64](images/64.png)
+
+---
+
+![65](images/65.png)
+
+---
+
+![66](images/66.png)
+
+---
+
+![67](images/67.png)
+
+---
+
+![68](images/68.png)
+
+---
+
+![69](images/69.png)
+
+---
+
+![70](images/70.png)
+
+---
