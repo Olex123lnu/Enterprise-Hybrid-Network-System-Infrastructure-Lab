@@ -227,7 +227,7 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 
 ---
 
-![122](images/122.png)
+![121](images/121.png)
 
 ---
 
@@ -500,7 +500,7 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 
 ---
 
-![121](images/121.png)
+![122](images/122.png)
 
 ---
 
