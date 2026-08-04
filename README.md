@@ -9,8 +9,7 @@ The goal of the laboratory work is to implement and validate a fault-tolerant ro
 
 Below is a logical diagram of the built infrastructure, which includes three MikroTik routers (two physical/CHR and one virtual inside ESXi), domain services, and client access segments:
 
-<image-card alt="Network Topology" src="images/topology.png" ></image-card>
-
+![Network Topology](images/topology.png)
 
 ---
 
