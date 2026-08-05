@@ -311,6 +311,8 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 * Network policies have been created to authorize router administrators via the `AMAZONLEO\routeradmin` domain group.
 * **Vendor-Specific Attributes (VSA)** transfer from the RADIUS server to MikroTik (Vendor ID: `14988`, Attribute 3: `full`) has been configured to automatically assign `full` access rights to domain users when logging in via WinBox.
 
+<details>
+<summary>📸 Click here to view step-by-step configuration screenshots</summary>
 ![45](images/45.png)
 
 ---
@@ -386,11 +388,15 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 ![63](images/63.png)
 
 ---
+</details>
+
 ### 3. VPN & Remote Access
 * **WireGuard VPN:** Configured tunneling on R1 with automatic key generation and configuration files for clients (`vm51.conf` config generated).
 * **L2TP/IPSec VPN:** Configured L2TP server on R1/R2 with mandatory IPSec encryption (Required). Authentication integrated with domain RADIUS.
 * **CMAK (Connection Manager Administration Kit):** Created a connection installation profile for Windows clients that automatically configures security settings, DNS suffix (`AmazonLeo.local`) and runs a routing script (`st_99.bat`) upon successful connection.
 
+<details>
+<summary>📸 Click here to view step-by-step configuration screenshots</summary>
 ![77](images/77.png)
 
 ---
@@ -542,6 +548,8 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 ![116](images/116.png)
 
 ---
+</details>
+
 ### 4. Domain Services and Hypervisor Integration
 * DNS server configured with forward and reverse zones (PTR records created for KMS and DC1).
 * **VMware ESXi** hypervisor successfully entered into the `AMAZONLEO.LOCAL` domain.
