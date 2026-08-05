@@ -41,6 +41,7 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 
 <details>
 <summary>📸 Click here to view step-by-step configuration screenshots</summary>
+  
 ![Interface R1](images/1.png)
 
 *Interface R1*
@@ -313,6 +314,7 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 
 <details>
 <summary>📸 Click here to view step-by-step configuration screenshots</summary>
+  
 ![45](images/45.png)
 
 ---
@@ -397,6 +399,7 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 
 <details>
 <summary>📸 Click here to view step-by-step configuration screenshots</summary>
+  
 ![77](images/77.png)
 
 ---
@@ -555,6 +558,9 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 * **VMware ESXi** hypervisor successfully entered into the `AMAZONLEO.LOCAL` domain.
 * ESXi administration rights delegated to the `AMAZONLEO\routeradmin` domain group (Authentication Services -> Active Directory Enabled).
 
+<details>
+<summary>📸 Click here to view step-by-step configuration screenshots</summary>
+  
 ![117](images/117.png)
 
 ---
@@ -594,12 +600,16 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 ![127](images/127.png)
 
 ---
+</details>
 
 ### 5. Licensing Infrastructure (KMS Host)
 * A local **KMS** activation node has been deployed on a dedicated server in the subnet.
 * An SRV record `_vlmcs._tcp` on port `1688` has been created in DNS for automatic search of the activation server by clients.
 * A successful activation of the Windows 10 client VM using the local KMS host (validated via `slmgr /dlv`) has been performed.
 
+<details>
+<summary>📸 Click here to view step-by-step configuration screenshots</summary>
+  
 ![64](images/64.png)
 
 ---
@@ -651,3 +661,4 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 ![76](images/76.png)
 
 ---
+</details>
