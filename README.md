@@ -39,6 +39,8 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 * On R3, VLAN subinterfaces 11, 12, 13 are configured on the trunk port.
 * To improve security and optimize OSPF traffic, the interfaces facing the clients are set to passive mode (`Passive: yes`), and MD5 authentication is enabled for OSPF sessions.
 
+<details>
+<summary>📸 Click here to view step-by-step configuration screenshots</summary>
 ![Interface R1](images/1.png)
 
 *Interface R1*
@@ -301,7 +303,7 @@ Below is a logical diagram of the built infrastructure, which includes three Mik
 ![145](images/145.png)
 
 ---
-
+</details>
 ### 2. Centralized Access Control (NPS / RADIUS)
 * The **NPS (Network Policy Server)** role has been deployed on Windows Server.
 * MikroTik routers have been added as RADIUS clients.
